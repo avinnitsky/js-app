@@ -1,0 +1,53 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+    <title>js-app</title>
+    <script>
+        $(
+            $(document).ready(()=> {
+                console.log('!document ready')
+                $(document).on('change', '#date-selector', (event) => {
+                    console.log('Native event', event)
+                })
+            })
+        )
+
+        function counter(state, action) {
+            if (typeof state === 'undefined') {
+                return 0
+            }
+
+            switch (action.type) {
+                case 'INCREMENT':
+                    return state + 1
+                case 'DECREMENT':
+                    return state - 1
+                default:
+                    return state
+            }
+        }
+
+        var $store = Redux.createStore(counter)
+        function render() {
+            console.log($store.getState().toString())
+        }
+        render()
+        $store.subscribe(render)
+
+    </script>
+</head>
+<body>
+    <div id="content">
+        <div id="app"></div>
+    </div>
+</body>
+</html>

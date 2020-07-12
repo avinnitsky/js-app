@@ -1,0 +1,17 @@
+/**
+ * Body CSS
+ */
+
+html,
+body {
+    height: 100%;
+}
+
+
+/**
+ * Content CSS
+ */
+#content {
+    max-width: 480px;
+    margin: auto;
+}
