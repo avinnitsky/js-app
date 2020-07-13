@@ -150,3 +150,63 @@ module.exports = {
         ],
     },
 }
+
+
+/*
+
+
+ const path = require('path')
+ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+ const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+ const fs = require('fs');
+ const entries = {
+}
+function generateHtmlPlugins (templateDir) {
+    const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
+    return templateFiles.map(item => {
+        const [name, extension] = item.split('.');
+        entries[name] = `./src/script/${name}.js`
+        return new HtmlWebpackPlugin({
+            filename: `${name}.${extension}`,
+            inject: true,
+            chunks: [name],
+            template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`)
+        })
+    })
+}
+const htmlPlugins = generateHtmlPlugins('./src/templates');
+
+module.exports = {
+    mode: 'development',
+
+    devServer: {
+        port: 3009,
+        hot: true,
+        open: false,
+        historyApiFallback: true,
+        before: function(app, server, compiler) {
+            app.get('/api/12', function(req, res) {
+                res.json({ custom: 'response' })
+            });
+        },
+        proxy: {
+            '/api/123': {
+                target: 'http://localhost:3005',
+                pathRewrite: {'^/api/123' : ''}
+            },
+        }
+    },
+
+    entry: entries,
+    output: {
+        filename: '[name].[hash].js',
+        path: path.resolve(__dirname, 'dist'),
+    },
+
+    plugins: [
+        new CleanWebpackPlugin(),
+    ].concat(htmlPlugins)
+};
+
+ */
