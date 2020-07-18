@@ -1,5 +1,5 @@
 <template>
-    <v-app dark >
+    <v-app light>
         <br>
         <div><img src="images/logo.svg" width="200"/></div>
         <br>
@@ -28,6 +28,10 @@
             <data-form/>
         </section>
 
+        <section>
+            <js-components/>
+        </section>
+
         <br>
         <div>RECENT POSTS</div>
         <div></div>
@@ -39,11 +43,14 @@
 <script>
     import DataForm from './components/DataForm.vue'
     import DateSelector from './components/DateSelector.vue'
+    import JsComponents from './components/JSComponents.vue'
+
     export default {
         name: 'App',
         components: {
             DataForm,
             DateSelector,
+            JsComponents
         },
         methods: {
             onDateSelectorChange: (e) => {

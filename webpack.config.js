@@ -38,10 +38,10 @@ const babelOptions = preset => {
 
 module.exports = {
 //    mode: 'development',
-    entry: ['@babel/polyfill', './src/main.js', './src/less/styles.less'],
+    entry: ['@babel/polyfill', './src/main.js'],
     output: {
-        filename: '[name].[hash].js',
-        path: path.resolve(__dirname, 'dist')
+        filename: '[name].js',
+        path: path.resolve(__dirname, 'dist'),
     },
     optimization: optimization(),
     devtool: isDev ? 'source-map' : '',
@@ -65,7 +65,7 @@ module.exports = {
         }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: '../css/[name].css'
+            filename: '[name].css'
         }),
     ],
     module: {

@@ -3,10 +3,10 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
 
-/*
-import './styles.css'
+import {compentFactory} from './components/componentFactory'
+
+//import './styles.css'
 import './less/styles.less'
-*/
 
 new Vue({
     vuetify,
