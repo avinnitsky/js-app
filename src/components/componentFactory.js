@@ -1,4 +1,4 @@
-import { Contract } from './contract.component'
+import { DateRange } from './DateRange.component'
 
 class Simple {
     constructor() {
@@ -8,7 +8,7 @@ class Simple {
 
 class ComponentFactory {
     static list = {
-        Contract,
+        DateRange,
         Simple
     }
 
